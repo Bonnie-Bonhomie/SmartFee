@@ -9,6 +9,8 @@ import 'screens/home_screen.dart';
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await NotificationService().init();
+
+
   runApp(const SchoolFeesReminderApp());
 }
 

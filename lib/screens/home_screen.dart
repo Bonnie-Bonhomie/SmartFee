@@ -41,7 +41,8 @@ class _HomeScreenState extends State<HomeScreen> {
       floatingActionButton: _currentIndex == 0 || _currentIndex == 1
           ? FloatingActionButton(
               onPressed: () {
-                NotificationService().showNotification();
+                print('Hello');
+                // NotificationService().testingScheduleReminder(id: 1, title: 'title', body: 'Testing');
                 Navigator.push(
                   context,
                   MaterialPageRoute(

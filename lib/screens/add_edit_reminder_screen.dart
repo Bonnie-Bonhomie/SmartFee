@@ -69,12 +69,16 @@ class _AddEditReminderScreenState extends State<AddEditReminderScreen> {
     final provider = context.read<ReminderProvider>();
     final amount = double.parse(_amountCtrl.text.trim());
 
-    // Notify one day before due date at the chosen time (falls back to
-    // the due date itself if that day has already passed).
+    /// Notify one day before due date at the chosen time (falls back to
+    /// the due date itself if that day has already passed).
     var notifyDate = _dueDate.subtract(const Duration(days: 1));
+    // print('After subtraction $notifyDate');
     if (notifyDate.isBefore(DateTime.now())) {
+      print(notifyDate.isBefore(DateTime.now()));
+      print(DateTime.now());
       notifyDate = _dueDate;
     }
+    print(notifyDate);
     final notifyAt = DateTime(
       notifyDate.year,
       notifyDate.month,

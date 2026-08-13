@@ -56,6 +56,9 @@ class NotificationService {
         .resolvePlatformSpecificImplementation<IOSFlutterLocalNotificationsPlugin>()
         ?.requestPermissions(alert: true, badge: true, sound: true);
 
+
+
+
     _initialized = true;
   }
 
@@ -85,11 +88,12 @@ class NotificationService {
     if (scheduledDate.isBefore(DateTime.now().add(const Duration(minutes: 1))))
       return;
 
-    print('Schedule processing');
+    print('Schedule $scheduledDate');
     await init();
 
     final tzDate = tz.TZDateTime.from(scheduledDate, tz.local);
 
+    print('Timezone time $tzDate');
     await _plugin.zonedSchedule(
       id,
       title,
@@ -101,10 +105,6 @@ class NotificationService {
           UILocalNotificationDateInterpretation.absoluteTime,
     );
     print('Schedule notification delivered');
-  }
-
-  Future<void> showNotification() async {
-    await _plugin.show(1, "Test", "Notification works", _details);
   }
 
   Future<void> cancelReminder(int id) async {
