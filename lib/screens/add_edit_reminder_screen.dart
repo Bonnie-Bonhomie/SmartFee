@@ -139,7 +139,7 @@ class _AddEditReminderScreenState extends State<AddEditReminderScreen> {
               controller: _amountCtrl,
               decoration: const InputDecoration(
                 labelText: 'Amount',
-                prefixText: '\$ ',
+                prefixText: '₦ ',
               ),
               keyboardType: const TextInputType.numberWithOptions(decimal: true),
               validator: (v) {
