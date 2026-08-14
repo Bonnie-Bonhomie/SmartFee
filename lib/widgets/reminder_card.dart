@@ -18,7 +18,7 @@ class ReminderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currencyFmt = NumberFormat.currency(symbol: '\$');
+    final currencyFmt = NumberFormat.currency(symbol: '₦');
     final dateFmt = DateFormat('MMM d, yyyy');
     final overdue = reminder.isOverdue;
 
